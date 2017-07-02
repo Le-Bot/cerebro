@@ -1,2 +1,3 @@
 # cerebro
-Core engine for Le Bot
+Core engine for @LeBot
+
