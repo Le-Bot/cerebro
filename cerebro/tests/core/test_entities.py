@@ -16,6 +16,6 @@ class TestEntities(unittest.TestCase):
         assert command.keywords == self.test_keywords
 
     def test_command_creation_args(self):
-        command = en.Command(self.keywords, )
+        command = en.Command(self.keywords, self.args)
         assert command.keywords == self.test_keywords
         assert command.args == self.test_args
