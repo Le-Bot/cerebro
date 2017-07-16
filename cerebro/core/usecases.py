@@ -18,4 +18,11 @@ def get_all_neurons(path):
 
 
 def process_command(command):
-    pass
+
+    for key, value in NEURONS.iteritems():
+        if command.keywords == key:
+            response = value()
+            break
+
+    return  response
+

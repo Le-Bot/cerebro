@@ -20,4 +20,5 @@ class TestUseCases(unittest.TestCase):
         assert uc.NEURONS[self.neuron_test]() == self.neuron_test_response
 
     def test_command_execution(self):
-        uc.process_command(self.test_command)
+        response = uc.process_command(self.test_command)
+        assert response == self.neuron_test_response
