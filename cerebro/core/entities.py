@@ -1,3 +1,3 @@
 class Command(object):
-    def __init__(self, *args):
-        self.args = args
+    def __init__(self, keywords):
+        self.keywords = keywords
