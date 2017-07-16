@@ -1,6 +1,8 @@
 import pkgutil
 
+
 NEURONS = {}
+
 
 def get_all_neurons(path):
     for finder, name, is_pkg in pkgutil.walk_packages(path):
@@ -13,3 +15,7 @@ def get_all_neurons(path):
         else:
             if hasattr(mod, 'KEYWORDS'):
                 NEURONS.update(mod.KEYWORDS)
+
+
+def process_command(command):
+    pass
