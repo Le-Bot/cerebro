@@ -7,14 +7,18 @@ import cerebro.core.usecases as uc
 class TestUseCases(unittest.TestCase):
     def setUp(self):
         self.neurons_path = ["./cerebro/neurons"]
+
         self.neuron_test = ("system check")
         self.neuron_test_response = "All working properly."
         self.command_args = ("arg1", "arg2")
-
-        uc.get_all_neurons(self.neurons_path)
-
         self.test_command = en.Command(self.neuron_test, self.command_args)
+
+        self.error_test = ("asd asdasd ")
+        self.error_test_response = "Sorry, I could not process that."
+        self.error_command = en.Command(self.error_test, self.command_args)
+
         self.total_neurons = 2
+        uc.get_all_neurons(self.neurons_path)
 
     def test_get_all_neurons(self):
         assert len(uc.NEURONS) == self.total_neurons
@@ -25,3 +29,7 @@ class TestUseCases(unittest.TestCase):
     def test_command_execution(self):
         response = uc.process_command(self.test_command)
         assert response == self.neuron_test_response
+
+    def test_command_execution_faliure(self):
+        response = uc.process_command(self.error_command)
+        assert response == self.error_test_response
