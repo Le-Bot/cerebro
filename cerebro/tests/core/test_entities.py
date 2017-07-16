@@ -7,7 +7,8 @@ class TestEntities(unittest.TestCase):
 
     def setUp(self):
         self.keywords = ("book", "find")
+        self.test_keywords = ("book", "find")
 
     def test_command_creation(self):
         command = en.Command(self.keywords)
-        assert len(command.keywords) == len(self.keywords)
+        assert command.keywords == self.test_keywords
