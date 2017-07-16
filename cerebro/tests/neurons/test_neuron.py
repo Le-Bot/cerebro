@@ -1,8 +1,8 @@
 
 def test(*args):
-    pass
+    return "This is test neuron"
 
 
 KEYWORDS = {
-    "test": test
+    ("test"): test
 }

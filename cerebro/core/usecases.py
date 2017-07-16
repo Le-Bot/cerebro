@@ -1,8 +1,8 @@
 import pkgutil
 
+NEURONS = {}
 
 def get_all_neurons(path):
-    neurons = {}
     for finder, name, is_pkg in pkgutil.walk_packages(path):
         try:
 
@@ -12,6 +12,4 @@ def get_all_neurons(path):
             print("Error loading '%s'".format(name))
         else:
             if hasattr(mod, 'KEYWORDS'):
-                neurons.update(mod.KEYWORDS)
-
-    return neurons
+                NEURONS.update(mod.KEYWORDS)
