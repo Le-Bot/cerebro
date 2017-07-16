@@ -21,7 +21,7 @@ def process_command(command):
 
     for key, value in NEURONS.iteritems():
         if command.keywords == key:
-            response = value()
+            response = value(command.args)
             break
 
     return  response
