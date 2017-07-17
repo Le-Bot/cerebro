@@ -24,5 +24,5 @@ def process_command(command):
             response = value(command.args)
             break
 
-    return  response
+    return response
 
