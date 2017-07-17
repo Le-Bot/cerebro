@@ -1,28 +1,19 @@
-import pkgutil
+import constants as const
 
 
-NEURONS = {}
+class CerebroMain(object):
+    def __init__(self, config, finder, manager):
+        self.config = config
+        self.finder = finder
+        self.manager = manager
 
+    def load_all_neurons(self):
+        path = self.config.get_neurons_path()
+        neuron_modules = self.finder.find_neurons(path)
+        for neuron in neuron_modules:
+            if self.manager.is_valid(neuron):
+                self.manager.add(neuron.KEYWORDS)
 
-def get_all_neurons(path):
-    for finder, name, is_pkg in pkgutil.walk_packages(path):
-        try:
-
-            loader = finder.find_module(name)
-            mod = loader.load_module(name)
-        except:
-            print("Error loading '%s'".format(name))
-        else:
-            if hasattr(mod, 'KEYWORDS'):
-                NEURONS.update(mod.KEYWORDS)
-
-
-def process_command(command):
-    response = "Sorry, I could not process that."
-    for key, value in NEURONS.iteritems():
-        if command.keywords == key:
-            response = value(command.args)
-            break
-
-    return  response
-
+    def process_command(self, command):
+        response = self.manager.execute(command.keywords, command.args)
+        return response if response is not None else const.STR_DEFAULT_RESPONSE
