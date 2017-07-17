@@ -1,0 +1,2 @@
+STR_DEFAULT_RESPONSE = "Sorry, I could not process that."
+STR_KEYWORDS = "KEYWORDS"
