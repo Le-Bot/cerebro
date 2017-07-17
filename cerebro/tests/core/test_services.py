@@ -28,23 +28,23 @@ class TestNeuronsService(unittest.TestCase):
 
     def setUp(self):
         self.obj = ser.NeuronsService()
-        self.obj.add_neuron(self.KEYWORDS)
+        self.obj.add(self.KEYWORDS)
 
     def test_neurons_creation(self):
-        assert self.obj.get_all_neurons() is not None
+        assert self.obj.get_all() is not None
 
     def test_add_neuron(self):
-        assert len(self.obj.get_all_neurons()) == 1
+        assert len(self.obj.get_all()) == 1
 
     def test_is_valid_neuron(self):
-        assert self.obj.is_valid_neuron(self)
+        assert self.obj.is_valid(self)
 
     def test_get_neuron(self):
-        assert self.obj.get_neuron("test") is not None
+        assert self.obj.get("test") is not None
 
     def test_is_exists_neuron(self):
-        assert self.obj.is_exists_neuron("test")
+        assert self.obj.is_exists("test")
 
     def test_execute_neuron(self):
-        assert self.obj.execute_neuron("test") == "This is dummy neuron"
+        assert self.obj.execute("test") == "This is dummy neuron"
 

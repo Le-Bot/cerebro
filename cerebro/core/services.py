@@ -16,21 +16,21 @@ class NeuronsService(object):
     def __init__(self):
         self.neurons = {}
 
-    def get_all_neurons(self):
+    def get_all(self):
         return self.neurons
 
-    def add_neuron(self, obj):
+    def add(self, obj):
         self.neurons.update(obj)
 
     @staticmethod
-    def is_valid_neuron(neuron):
+    def is_valid(neuron):
         return hasattr(neuron, const.STR_KEYWORDS)
 
-    def get_neuron(self, keywords):
+    def get(self, keywords):
         return self.neurons.get(keywords, None)
 
-    def is_exists_neuron(self, keywords):
+    def is_exists(self, keywords):
         return self.neurons.has_key(keywords)
 
-    def execute_neuron(self, keywords, args=None):
-        return self.get_neuron(keywords)(args) if self.is_exists_neuron(keywords) else None
+    def execute(self, keywords, args=None):
+        return self.get(keywords)(args) if self.is_exists(keywords) else None
