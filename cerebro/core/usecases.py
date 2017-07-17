@@ -18,7 +18,7 @@ def get_all_neurons(path):
 
 
 def process_command(command):
-
+    response = "Sorry, I could not process that."
     for key, value in NEURONS.iteritems():
         if command.keywords == key:
             response = value(command.args)
