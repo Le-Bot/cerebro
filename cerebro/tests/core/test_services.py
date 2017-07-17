@@ -1,13 +1,14 @@
 import unittest
 
-import cerebro.core.entities as en
-import cerebro.core.usecases as uc
 import cerebro.core.services as ser
 
 
 class TestConfigService(unittest.TestCase):
     def setUp(self):
         self.obj = ser.ConfigService()
+
+    def test_type(self):
+        assert isinstance(self.obj, ser.AbstractConfigService)
 
     def test_config_creation(self):
         assert self.obj.get_neurons_path() is not None
@@ -30,6 +31,9 @@ class TestNeuronsService(unittest.TestCase):
         self.obj = ser.NeuronsService()
         self.obj.add(self.KEYWORDS)
 
+    def test_type(self):
+        assert isinstance(self.obj, ser.AbstractNeuronsService)
+
     def test_neurons_creation(self):
         assert self.obj.get_all() is not None
 
@@ -48,3 +52,17 @@ class TestNeuronsService(unittest.TestCase):
     def test_execute_neuron(self):
         assert self.obj.execute("test") == "This is dummy neuron"
 
+
+class TestNeuronsFinderService(unittest.TestCase):
+
+    def setUp(self):
+        self.obj = ser.NeuronsFinderService()
+
+    def test_type(self):
+        assert isinstance(self.obj, ser.AbstractNeuronsFinderService)
+
+    def test_find_neurons(self):
+        config = ser.ConfigService()
+        config.add_neurons_location("./cerebro/neurons")
+
+        assert self.obj.find_neurons(config.get_neurons_path()) is not None
