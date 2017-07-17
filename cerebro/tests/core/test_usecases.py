@@ -2,34 +2,50 @@ import unittest
 
 import cerebro.core.entities as en
 import cerebro.core.usecases as uc
+import cerebro.core.services as ser
+import cerebro.core.constants as const
 
 
 class TestUseCases(unittest.TestCase):
     def setUp(self):
-        self.neurons_path = ["./cerebro/neurons"]
+        self.config = ser.ConfigService()
+        self.config.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
 
-        self.neuron_test = ("system check")
-        self.neuron_test_response = "All working properly."
+        self.finder = ser.NeuronsFinderService()
+
+        self.manager = ser.NeuronsService()
+
         self.command_args = ("arg1", "arg2")
-        self.test_command = en.Command(self.neuron_test, self.command_args)
 
-        self.total_neurons = 2
-        uc.get_all_neurons(self.neurons_path)
+    def test_cerebro_creation(self):
+        cerebro = uc.CerebroMain(self.config, self.finder, self.manager)
+        assert cerebro
+        assert cerebro.config == self.config
+        assert cerebro.finder == self.finder
+        assert cerebro.manager == self.manager
 
-    def test_get_all_neurons(self):
-        assert len(uc.NEURONS) == self.total_neurons
-
-    def test_neuron_execution(self):
-        assert uc.NEURONS[self.neuron_test]() == self.neuron_test_response
+    def test_load_all_neurons(self):
+        cerebro = uc.CerebroMain(self.config, self.finder, self.manager)
+        cerebro.load_all_neurons()
+        assert len(self.manager.get_all()) > 0
 
     def test_command_execution(self):
-        response = uc.process_command(self.test_command)
-        assert response == self.neuron_test_response
+        test_keyword = ("system check")
+        test_response = "All working properly."
+        test_command = en.Command(test_keyword, self.command_args)
+
+        cerebro = uc.CerebroMain(self.config, self.finder, self.manager)
+        cerebro.load_all_neurons()
+
+        response = cerebro.process_command(test_command)
+        assert response == test_response
 
     def test_command_execution_faliure(self):
-        error_test = ("asd asdasd ")
-        error_test_response = "Sorry, I could not process that."
-        error_command = en.Command(error_test, self.command_args)
+        test_keyword = ("wrong command")
+        test_command = en.Command(test_keyword, self.command_args)
 
-        response = uc.process_command(error_command)
-        assert response == error_test_response
+        cerebro = uc.CerebroMain(self.config, self.finder, self.manager)
+        cerebro.load_all_neurons()
+
+        response = cerebro.process_command(test_command)
+        assert response == const.STR_DEFAULT_RESPONSE

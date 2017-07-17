@@ -88,14 +88,14 @@ class NeuronsService(AbstractNeuronsService):
 
 class NeuronsFinderService(AbstractNeuronsFinderService):
     def find_neurons(self, path):
-        neurons = []
+        modules = []
         for finder, name, is_pkg in pkgutil.walk_packages(path):
             try:
 
                 loader = finder.find_module(name)
                 mod = loader.load_module(name)
-                neurons.append(mod)
+                modules.append(mod)
             except:
                 print("Error loading '%s'".format(name))
 
-        return neurons
+        return modules
