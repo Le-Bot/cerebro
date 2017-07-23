@@ -14,3 +14,7 @@ python -m unittest discover
 
 python start.py <command>
 
+
+## List of supported Commands
+
+"system check", "time", "date", "day"
