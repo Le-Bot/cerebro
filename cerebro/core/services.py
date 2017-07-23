@@ -77,10 +77,24 @@ class NeuronsService(AbstractNeuronsService):
         return hasattr(neuron, const.STR_KEYWORDS)
 
     def get(self, keywords):
-        return self.neurons.get(keywords, None)
+        flag = None
+        for key, value in self.neurons.iteritems():
+            keywords_set = set(keywords)
+            key_set = set(key)
+            if key_set == keywords_set or key_set.intersection(keywords_set):
+                flag = value
+                break
+        return flag
 
     def is_exists(self, keywords):
-        return self.neurons.has_key(keywords)
+        flag = False
+        for key in self.neurons.iterkeys():
+            keywords_set = set(keywords)
+            key_set = set(key)
+            if key_set == keywords_set or key_set.intersection(keywords_set):
+                flag = True
+                break
+        return flag
 
     def execute(self, keywords, args=None):
         return self.get(keywords)(args) if self.is_exists(keywords) else None

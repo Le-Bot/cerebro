@@ -7,7 +7,7 @@ class TestSimple(unittest.TestCase):
 
     def setUp(self):
         self.response = "All working properly."
-        self.keyword = ("system check")
+        self.keyword = ("system check",)
         self.valid_attr = "KEYWORDS"
 
     def test_valid(self):
