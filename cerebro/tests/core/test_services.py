@@ -24,12 +24,13 @@ class TestNeuronsService(unittest.TestCase):
         return "This is dummy neuron"
 
     KEYWORDS = {
-            ("test"): simple_test
+            ("test",): simple_test
         }
 
     def setUp(self):
         self.obj = ser.NeuronsService()
         self.obj.add(self.KEYWORDS)
+        self.keyword = ("test",)
 
     def test_type(self):
         assert isinstance(self.obj, ser.AbstractNeuronsService)
@@ -44,13 +45,13 @@ class TestNeuronsService(unittest.TestCase):
         assert self.obj.is_valid(self)
 
     def test_get_neuron(self):
-        assert self.obj.get("test") is not None
+        assert self.obj.get(self.keyword) is not None
 
     def test_is_exists_neuron(self):
-        assert self.obj.is_exists("test")
+        assert self.obj.is_exists(self.keyword)
 
     def test_execute_neuron(self):
-        assert self.obj.execute("test") == "This is dummy neuron"
+        assert self.obj.execute(self.keyword) == "This is dummy neuron"
 
 
 class TestNeuronsFinderService(unittest.TestCase):

@@ -4,5 +4,5 @@ def simple_test(*args):
 
 
 KEYWORDS = {
-    ("system check"): simple_test
+    ("system check",): simple_test
 }
