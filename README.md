@@ -7,5 +7,10 @@ Core engine for @LeBot, A generic bot that will be able to do custom tasks on th
 
 ## Run Tests
 
-python -m unittest
+python -m unittest discover
+
+
+## Run Start
+
+python start.py <command>
 
