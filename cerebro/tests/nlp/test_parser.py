@@ -1,13 +1,11 @@
 import unittest
 
-from cerebro.nlp.parser import DataSetParser
-from cerebro.nlp.config import DATA_SET_PATH,COLUMN_LABEL
-
+import cerebro.nlp as n
 
 class TestParser(unittest.TestCase):
 
     def setUp(self):
-        self.obj = DataSetParser(DATA_SET_PATH)
+        self.obj = n.DataSetParser(n.DATA_SET_PATH)
         self.obj.parse()
 
     def test_parse(self):
@@ -15,5 +13,5 @@ class TestParser(unittest.TestCase):
         assert self.obj.df is not None
 
     def test_column_data(self):
-        temp = self.obj.get_column_data(COLUMN_LABEL)
+        temp = self.obj.get_column_data(n.COLUMN_LABEL)
         assert len(temp) == 29
