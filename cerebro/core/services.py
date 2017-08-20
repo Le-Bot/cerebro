@@ -83,19 +83,12 @@ class NeuronsService(AbstractNeuronsService):
         return self.neurons.has_key(keyword)
 
     def execute(self, keyword, args=None):
-        return self.get(keyword)(args) if self.is_exists(keyword) else None
+        return self.get(keyword)(args) if self.is_exists(keyword) else const.STR_DEFAULT_RESPONSE
 
 
 class NeuronsFinderService(AbstractNeuronsFinderService):
     def find_neurons(self, path):
-        modules = []
         for finder, name, is_pkg in pkgutil.walk_packages(path):
-            try:
-
-                loader = finder.find_module(name)
-                mod = loader.load_module(name)
-                modules.append(mod)
-            except:
-                print("Error loading '%s'".format(name))
-
-        return modules
+            loader = finder.find_module(name)
+            mod = loader.load_module(name)
+            yield mod
