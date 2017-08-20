@@ -13,7 +13,7 @@ def init():
 
     finder = fn.find
 
-    manager = ser.NeuronsService()
+    manager = ser.NeuronsManager()
     cerebro = uc.CerebroMain(cfg, finder, manager)
     cerebro.load_all_neurons()
 

@@ -7,7 +7,7 @@ def init_neuron():
 
     finder = fn.find
 
-    manager = ser.NeuronsService()
+    manager = ser.NeuronsManager()
     return uc.CerebroMain(cfg, finder, manager)
 
 
