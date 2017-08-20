@@ -25,7 +25,7 @@ class AbstractNeuronsFinderService(object):
 
 
 class AbstractNeuronsService(object):
-    __metaclass__ =  abc.ABCMeta
+    __metaclass__ = abc.ABCMeta
 
     @abc.abstractmethod
     def get_all(self):
