@@ -1,15 +1,14 @@
-from core import usecases as uc, services as ser, constants as const
+from core import usecases as uc, services as ser, constants as const, config as cfg
 import nlp as n
 
 
 def init_neuron():
-    config = ser.ConfigService()
-    config.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
+    cfg.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
 
     finder = ser.find_neurons
 
     manager = ser.NeuronsService()
-    return uc.CerebroMain(config, finder, manager)
+    return uc.CerebroMain(cfg, finder, manager)
 
 
 def init_nlp():

@@ -4,16 +4,16 @@ import cerebro.core.entities as en
 import cerebro.core.usecases as uc
 import cerebro.core.services as ser
 import cerebro.core.constants as const
+import cerebro.core.config as cfg
 
 
 def init():
-    config = ser.ConfigService()
-    config.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
+    cfg.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
 
     finder = ser.find_neurons
 
     manager = ser.NeuronsService()
-    cerebro = uc.CerebroMain(config, finder, manager)
+    cerebro = uc.CerebroMain(cfg, finder, manager)
     cerebro.load_all_neurons()
 
     return cerebro
