@@ -2,7 +2,7 @@ import unittest
 
 import cerebro.core.entities as en
 import cerebro.core.usecases as uc
-import cerebro.core.services as ser
+import cerebro.core.manager as ser
 import cerebro.core.constants as const
 import cerebro.core.config as cfg
 import cerebro.core.finder as fn

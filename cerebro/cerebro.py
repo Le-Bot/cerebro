@@ -1,4 +1,4 @@
-from core import usecases as uc, services as ser, constants as const, config as cfg, finder as fn
+from core import usecases as uc, manager as ser, constants as const, config as cfg, finder as fn
 import nlp as n
 
 

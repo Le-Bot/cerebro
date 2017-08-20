@@ -1,6 +1,6 @@
 import unittest
 
-import cerebro.core.services as ser
+import cerebro.core.manager as ser
 
 
 class TestNeuronsService(unittest.TestCase):

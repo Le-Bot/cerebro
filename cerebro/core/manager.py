@@ -3,7 +3,7 @@ import abc
 import constants as const
 
 
-class AbstractNeuronsService(object):
+class AbstractManager(object):
     __metaclass__ = abc.ABCMeta
 
     @abc.abstractmethod
@@ -31,7 +31,7 @@ class AbstractNeuronsService(object):
         return
 
 
-class NeuronsService(AbstractNeuronsService):
+class NeuronsManager(AbstractManager):
     def __init__(self):
         self.neurons = {}
 
