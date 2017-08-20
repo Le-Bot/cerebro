@@ -1,4 +1,4 @@
-from core import usecases as uc, manager as ser, constants as const, config as cfg, finder as fn
+from neuron import neuron as uc, manager as ser, constants as const, config as cfg, finder as fn
 import nlp as n
 
 
@@ -8,7 +8,7 @@ def init_neuron():
     finder = fn.find
 
     manager = ser.NeuronsManager()
-    return uc.CerebroMain(cfg, finder, manager)
+    return uc.Neuron(cfg, finder, manager)
 
 
 def init_nlp():

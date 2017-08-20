@@ -1,11 +1,11 @@
 import sys
 
-import cerebro.core.entities as en
-import cerebro.core.usecases as uc
-import cerebro.core.manager as ser
-import cerebro.core.constants as const
-import cerebro.core.config as cfg
-import cerebro.core.finder as fn
+import cerebro.neuron.entities as en
+import cerebro.neuron.neuron as uc
+import cerebro.neuron.manager as ser
+import cerebro.neuron.constants as const
+import cerebro.neuron.config as cfg
+import cerebro.neuron.finder as fn
 
 
 def init():
@@ -14,7 +14,7 @@ def init():
     finder = fn.find
 
     manager = ser.NeuronsManager()
-    cerebro = uc.CerebroMain(cfg, finder, manager)
+    cerebro = uc.Neuron(cfg, finder, manager)
     cerebro.load_all_neurons()
 
     return cerebro

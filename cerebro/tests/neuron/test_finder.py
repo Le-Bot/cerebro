@@ -1,6 +1,6 @@
 import unittest
 
-from cerebro.core import constants as const, config as cfg, finder as fn
+from cerebro.neuron import constants as const, config as cfg, finder as fn
 
 
 class TestNeuronsFinderService(unittest.TestCase):

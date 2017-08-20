@@ -1,6 +1,6 @@
 import unittest
 
-import cerebro.core.entities as en
+import cerebro.neuron.entities as en
 
 
 class TestEntities(unittest.TestCase):

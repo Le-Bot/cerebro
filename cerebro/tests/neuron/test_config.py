@@ -1,7 +1,7 @@
 import unittest
 
-import cerebro.core.config as cfg
-import cerebro.core.constants as const
+import cerebro.neuron.config as cfg
+import cerebro.neuron.constants as const
 
 
 class TestConfigService(unittest.TestCase):

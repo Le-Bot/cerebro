@@ -1,11 +1,11 @@
 import unittest
 
-import cerebro.core.entities as en
-import cerebro.core.usecases as uc
-import cerebro.core.manager as ser
-import cerebro.core.constants as const
-import cerebro.core.config as cfg
-import cerebro.core.finder as fn
+import cerebro.neuron.entities as en
+import cerebro.neuron.neuron as uc
+import cerebro.neuron.manager as ser
+import cerebro.neuron.constants as const
+import cerebro.neuron.config as cfg
+import cerebro.neuron.finder as fn
 
 
 class TestUseCases(unittest.TestCase):
@@ -19,14 +19,14 @@ class TestUseCases(unittest.TestCase):
         self.command_args = ("arg1", "arg2")
 
     def test_cerebro_creation(self):
-        cerebro = uc.CerebroMain(cfg, self.finder, self.manager)
+        cerebro = uc.Neuron(cfg, self.finder, self.manager)
         assert cerebro
         assert cerebro.config == cfg
         assert cerebro.finder == self.finder
         assert cerebro.manager == self.manager
 
     def test_load_all_neurons(self):
-        cerebro = uc.CerebroMain(cfg, self.finder, self.manager)
+        cerebro = uc.Neuron(cfg, self.finder, self.manager)
         cerebro.load_all_neurons()
         assert len(self.manager.get_all()) > 0
 
@@ -35,7 +35,7 @@ class TestUseCases(unittest.TestCase):
         test_response = "All working properly."
         test_command = en.Command(test_keyword, self.command_args)
 
-        cerebro = uc.CerebroMain(cfg, self.finder, self.manager)
+        cerebro = uc.Neuron(cfg, self.finder, self.manager)
         cerebro.load_all_neurons()
 
         response = cerebro.process_command(test_command)
@@ -45,7 +45,7 @@ class TestUseCases(unittest.TestCase):
         test_keyword = "wrong command"
         test_command = en.Command(test_keyword)
 
-        cerebro = uc.CerebroMain(cfg, self.finder, self.manager)
+        cerebro = uc.Neuron(cfg, self.finder, self.manager)
         cerebro.load_all_neurons()
 
         response = cerebro.process_command(test_command)
