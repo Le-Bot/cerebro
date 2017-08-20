@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime
 
-import cerebro.neurons.datetime_util as dt
+import cerebro.data.neurons.datetime_util as dt
 
 
 class TestDatetime(unittest.TestCase):

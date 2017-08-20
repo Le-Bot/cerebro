@@ -1,0 +1,30 @@
+feature,label
+Whats the time,time
+can you tell me the time,time
+How are you,greet
+how you doin,greet
+"hello, how do you do?",greet
+What's up with you ?,greet
+When is your birthday?,date
+What day is today,date
+what is the time of birth,time
+I hope you are doing well,greet
+When is Christmas,date
+When is independence day celebrated,date
+When is new year,date
+When is the meeting ?,date
+Hello,greet
+how are things?,greet
+nice to see you,greet
+what time does xxxxxx open ?,time
+what time does xxxxxx close ?,time
+how is life treating you,greet
+What time should we have lunch,time
+can you tell me the time please,time
+when is sunday,date
+what is today's date,date 
+when does sunrise ,time
+Good morning,greet
+good night,greet
+when does sun set ,time
+when is the appointment ,date

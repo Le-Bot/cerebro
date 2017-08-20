@@ -1,6 +1,6 @@
 import unittest
 
-import cerebro.neurons.simple as sim
+import cerebro.data.neurons.simple as sim
 
 
 class TestSimple(unittest.TestCase):
