@@ -30,7 +30,7 @@ class TestUseCases(unittest.TestCase):
         assert len(self.manager.get_all()) > 0
 
     def test_command_execution(self):
-        test_keyword = ("system check",)
+        test_keyword = "system check"
         test_response = "All working properly."
         test_command = en.Command(test_keyword, self.command_args)
 
@@ -41,7 +41,7 @@ class TestUseCases(unittest.TestCase):
         assert response == test_response
 
     def test_command_execution_failure(self):
-        test_keyword = ("wrong command",)
+        test_keyword = "wrong command"
         test_command = en.Command(test_keyword)
 
         cerebro = uc.CerebroMain(self.config, self.finder, self.manager)

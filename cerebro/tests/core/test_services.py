@@ -23,14 +23,12 @@ class TestNeuronsService(unittest.TestCase):
     def simple_test(*args):
         return "This is dummy neuron"
 
-    KEYWORDS = {
-            ("test",): simple_test
-        }
+    KEYWORDS = {"test": simple_test}
 
     def setUp(self):
         self.obj = ser.NeuronsService()
         self.obj.add(self.KEYWORDS)
-        self.keyword = ("test",)
+        self.keyword = "test"
 
     def test_type(self):
         assert isinstance(self.obj, ser.AbstractNeuronsService)
