@@ -1,6 +1,3 @@
-import constants as const
-
-
 class CerebroMain(object):
     def __init__(self, config, finder, manager):
         self.config = config
