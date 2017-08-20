@@ -3,7 +3,7 @@ import unittest
 import cerebro.neuron as neu
 
 
-class TestUseCases(unittest.TestCase):
+class TestNeuron(unittest.TestCase):
     def setUp(self):
         neu.cfg.add_neurons_location(neu.STR_DEFAULT_NEURONS_PATH)
 
