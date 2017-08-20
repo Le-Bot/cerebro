@@ -14,7 +14,7 @@ class TestUseCases(unittest.TestCase):
 
         self.finder = fn.find
 
-        self.manager = ser.NeuronsService()
+        self.manager = ser.NeuronsManager()
 
         self.command_args = ("arg1", "arg2")
 

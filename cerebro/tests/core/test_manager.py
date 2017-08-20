@@ -11,12 +11,12 @@ class TestNeuronsService(unittest.TestCase):
     KEYWORDS = {"test": simple_test}
 
     def setUp(self):
-        self.obj = ser.NeuronsService()
+        self.obj = ser.NeuronsManager()
         self.obj.add(self.KEYWORDS)
         self.keyword = "test"
 
     def test_type(self):
-        assert isinstance(self.obj, ser.AbstractNeuronsService)
+        assert isinstance(self.obj, ser.AbstractManager)
 
     def test_neurons_creation(self):
         assert self.obj.get_all() is not None
