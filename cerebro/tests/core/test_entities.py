@@ -6,8 +6,8 @@ import cerebro.core.entities as en
 class TestEntities(unittest.TestCase):
 
     def setUp(self):
-        self.keyword = ("book", "find")
-        self.test_keyword = ("book", "find")
+        self.keyword = "book"
+        self.test_keyword = "book"
         self.args = ("arg2", "arg1")
         self.test_args = ("arg2", "arg1")
 
