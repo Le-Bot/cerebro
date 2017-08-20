@@ -13,16 +13,16 @@ class TestUseCases(unittest.TestCase):
 
         self.command_args = ("arg1", "arg2")
 
-    def test_cerebro_creation(self):
-        cerebro = neu.Neuron(neu.cfg, self.finder, self.manager)
-        assert cerebro
-        assert cerebro.config == neu.cfg
-        assert cerebro.finder == self.finder
-        assert cerebro.manager == self.manager
+    def test_neuron_creation(self):
+        neuron = neu.Neuron(neu.cfg, self.finder, self.manager)
+        assert neuron
+        assert neuron.config == neu.cfg
+        assert neuron.finder == self.finder
+        assert neuron.manager == self.manager
 
-    def test_load_all_neurons(self):
-        cerebro = neu.Neuron(neu.cfg, self.finder, self.manager)
-        cerebro.load_all_neurons()
+    def test_load_all(self):
+        neuron = neu.Neuron(neu.cfg, self.finder, self.manager)
+        neuron.load_all()
         assert len(self.manager.get_all()) > 0
 
     def test_command_execution(self):
@@ -30,18 +30,18 @@ class TestUseCases(unittest.TestCase):
         test_response = "All working properly."
         test_command = neu.Command(test_keyword, self.command_args)
 
-        cerebro = neu.Neuron(neu.cfg, self.finder, self.manager)
-        cerebro.load_all_neurons()
+        neuron = neu.Neuron(neu.cfg, self.finder, self.manager)
+        neuron.load_all()
 
-        response = cerebro.process_command(test_command)
+        response = neuron.process(test_command)
         assert response == test_response
 
     def test_command_execution_failure(self):
         test_keyword = "wrong command"
         test_command = neu.Command(test_keyword)
 
-        cerebro = neu.Neuron(neu.cfg, self.finder, self.manager)
-        cerebro.load_all_neurons()
+        neuron = neu.Neuron(neu.cfg, self.finder, self.manager)
+        neuron.load_all()
 
-        response = cerebro.process_command(test_command)
+        response = neuron.process(test_command)
         assert response == neu.STR_DEFAULT_RESPONSE

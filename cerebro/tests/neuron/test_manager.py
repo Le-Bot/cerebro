@@ -3,7 +3,7 @@ import unittest
 from cerebro.neuron.manager import AbstractManager, NeuronsManager
 
 
-class TestNeuronsService(unittest.TestCase):
+class Testmanager(unittest.TestCase):
 
     def simple_test(*args):
         return "This is dummy neuron"

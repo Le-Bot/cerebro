@@ -2,6 +2,7 @@ import unittest
 
 import cerebro.nlp as n
 
+
 class TestParser(unittest.TestCase):
 
     def setUp(self):

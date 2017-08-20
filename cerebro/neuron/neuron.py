@@ -4,7 +4,7 @@ class Neuron(object):
         self.finder = finder
         self.manager = manager
 
-    def load_all_neurons(self):
+    def load_all(self):
         path = self.config.get_neurons_path()
         neuron_modules = self.finder(path)
         for neuron in neuron_modules:
@@ -13,5 +13,5 @@ class Neuron(object):
 
             self.manager.add(neuron.KEYWORDS)
 
-    def process_command(self, command):
+    def process(self, command):
         return self.manager.execute(command.keyword, command.args)

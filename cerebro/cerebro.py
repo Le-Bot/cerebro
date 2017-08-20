@@ -18,8 +18,8 @@ def init_nlp():
 
 
 def init():
-    cerebro = init_neuron()
-    cerebro.load_all_neurons()
+    neuron = init_neuron()
+    neuron.load_all_neurons()
 
     nlp = init_nlp()
     nlp.parse_data_set()

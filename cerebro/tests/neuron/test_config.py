@@ -3,7 +3,7 @@ import unittest
 import cerebro.neuron as neu
 
 
-class TestConfigService(unittest.TestCase):
+class TestConfig(unittest.TestCase):
     def test_config_creation(self):
         assert neu.cfg.get_neurons_path() is not None
 
