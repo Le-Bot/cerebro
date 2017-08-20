@@ -19,8 +19,17 @@ def init_nlp():
 
 def init():
     neuron = init_neuron()
-    neuron.load_all_neurons()
+    neuron.load_all()
 
     nlp = init_nlp()
     nlp.parse_data_set()
     nlp.train()
+
+    return nlp, neuron
+
+
+def run(txt):
+    nlp, neuron = init()
+    label = nlp.predict(txt)
+    print(label)
+    return neuron.process(neu.Command(label[0]))

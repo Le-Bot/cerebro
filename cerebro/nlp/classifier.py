@@ -22,7 +22,7 @@ class CerebroClassifier(AbstractClassifier):
         self.clf = Pipeline([
             ('vect', CountVectorizer()),
             ('tfidf', TfidfTransformer()),
-            ('clf', SGDClassifier()),
+            ('clf', SGDClassifier(max_iter=5, tol=None)),
         ])
 
     def fit(self, features, labels):
