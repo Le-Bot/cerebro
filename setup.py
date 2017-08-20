@@ -22,6 +22,12 @@ setup(name='lebot-cerebro',
       author_email='sanket.upadhyay@infoud.co.in',
       license='MIT',
       packages=['cerebro'],
-      install_requires=[],
+      install_requires=[
+          'spacy',
+          'scikit-learn',
+          'scipy',
+          'numpy',
+          'pandas'
+      ],
       include_package_data=True,
       zip_safe=False)
