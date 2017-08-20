@@ -6,8 +6,8 @@ class DataSetParser(object):
         self.df = None
         self.path = path
 
-    def parse(self, path):
-        self.df = pd.read_csv(path)
+    def parse(self):
+        self.df = pd.read_csv(self.path)
 
     def get_column_data(self, name):
         # Retried features and Labels column
