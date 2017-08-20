@@ -17,4 +17,4 @@ python start.py <command>
 
 ## List of supported Commands
 
-"system check", "time", "date", "day"
+"system check", "time", "date"
