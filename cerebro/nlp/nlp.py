@@ -1,4 +1,4 @@
-import config as cfg
+import constants as cfg
 
 
 class NLP(object):

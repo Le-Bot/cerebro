@@ -1,14 +1,14 @@
-from neuron import neuron as uc, manager as ser, constants as const, config as cfg, finder as fn
+import neuron as neu
 import nlp as n
 
 
 def init_neuron():
-    cfg.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
+    neu.cfg.add_neurons_location(neu.STR_DEFAULT_NEURONS_PATH)
 
-    finder = fn.find
+    finder = neu.find
 
-    manager = ser.NeuronsManager()
-    return uc.Neuron(cfg, finder, manager)
+    manager = neu.NeuronsManager()
+    return neu.Neuron(neu.cfg, finder, manager)
 
 
 def init_nlp():

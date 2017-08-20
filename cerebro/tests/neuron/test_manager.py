@@ -1,6 +1,6 @@
 import unittest
 
-import cerebro.neuron.manager as ser
+from cerebro.neuron.manager import AbstractManager, NeuronsManager
 
 
 class TestNeuronsService(unittest.TestCase):
@@ -11,12 +11,12 @@ class TestNeuronsService(unittest.TestCase):
     KEYWORDS = {"test": simple_test}
 
     def setUp(self):
-        self.obj = ser.NeuronsManager()
+        self.obj = NeuronsManager()
         self.obj.add(self.KEYWORDS)
         self.keyword = "test"
 
     def test_type(self):
-        assert isinstance(self.obj, ser.AbstractManager)
+        assert isinstance(self.obj, AbstractManager)
 
     def test_neurons_creation(self):
         assert self.obj.get_all() is not None

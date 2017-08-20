@@ -1,20 +1,15 @@
 import sys
 
-import cerebro.neuron.entities as en
-import cerebro.neuron.neuron as uc
-import cerebro.neuron.manager as ser
-import cerebro.neuron.constants as const
-import cerebro.neuron.config as cfg
-import cerebro.neuron.finder as fn
+import cerebro.neuron as neu
 
 
 def init():
-    cfg.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
+    neu.cfg.add_neurons_location(neu.STR_DEFAULT_NEURONS_PATH)
 
-    finder = fn.find
+    finder = neu.find
 
-    manager = ser.NeuronsManager()
-    cerebro = uc.Neuron(cfg, finder, manager)
+    manager = neu.NeuronsManager()
+    cerebro = neu.Neuron(neu.cfg, finder, manager)
     cerebro.load_all_neurons()
 
     return cerebro
@@ -29,7 +24,7 @@ def run(args):
 
     print("All system configured successfully.")
 
-    command = en.Command(args)
+    command = neu.Command(args)
 
     print("Command Executed with following result:")
     print(cerebro.process_command(command))
