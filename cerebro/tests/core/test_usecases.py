@@ -40,7 +40,7 @@ class TestUseCases(unittest.TestCase):
         response = cerebro.process_command(test_command)
         assert response == test_response
 
-    def test_command_execution_faliure(self):
+    def test_command_execution_failure(self):
         test_keyword = ("wrong command",)
         test_command = en.Command(test_keyword)
 
