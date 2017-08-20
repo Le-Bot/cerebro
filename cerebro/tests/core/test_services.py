@@ -1,5 +1,6 @@
 import unittest
 
+import cerebro.core.constants as const
 import cerebro.core.services as ser
 
 
@@ -14,7 +15,7 @@ class TestConfigService(unittest.TestCase):
         assert self.obj.get_neurons_path() is not None
 
     def test_add_path(self):
-        self.obj.add_neurons_location("./cerebro/neurons")
+        self.obj.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
         assert len(self.obj.get_neurons_path()) == 1
 
 
@@ -23,14 +24,12 @@ class TestNeuronsService(unittest.TestCase):
     def simple_test(*args):
         return "This is dummy neuron"
 
-    KEYWORDS = {
-            ("test",): simple_test
-        }
+    KEYWORDS = {"test": simple_test}
 
     def setUp(self):
         self.obj = ser.NeuronsService()
         self.obj.add(self.KEYWORDS)
-        self.keyword = ("test",)
+        self.keyword = "test"
 
     def test_type(self):
         assert isinstance(self.obj, ser.AbstractNeuronsService)
@@ -64,6 +63,6 @@ class TestNeuronsFinderService(unittest.TestCase):
 
     def test_find_neurons(self):
         config = ser.ConfigService()
-        config.add_neurons_location("./cerebro/neurons")
+        config.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
 
         assert self.obj.find_neurons(config.get_neurons_path()) is not None

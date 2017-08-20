@@ -25,7 +25,7 @@ class AbstractNeuronsFinderService(object):
 
 
 class AbstractNeuronsService(object):
-    __metaclass__ =  abc.ABCMeta
+    __metaclass__ = abc.ABCMeta
 
     @abc.abstractmethod
     def get_all(self):
@@ -40,15 +40,15 @@ class AbstractNeuronsService(object):
         return
 
     @abc.abstractmethod
-    def get(self, keywords):
+    def get(self, keyword):
         return
 
     @abc.abstractmethod
-    def is_exists(self, keywords):
+    def is_exists(self, keyword):
         return
 
     @abc.abstractmethod
-    def execute(self, keywords, args=None):
+    def execute(self, keyword, args=None):
         return
 
 
@@ -76,40 +76,19 @@ class NeuronsService(AbstractNeuronsService):
     def is_valid(self, neuron):
         return hasattr(neuron, const.STR_KEYWORDS)
 
-    def get(self, keywords):
-        flag = None
-        for key, value in self.neurons.iteritems():
-            keywords_set = set(keywords)
-            key_set = set(key)
-            if key_set == keywords_set or key_set.intersection(keywords_set):
-                flag = value
-                break
-        return flag
+    def get(self, keyword):
+        return self.neurons.get(keyword)
 
-    def is_exists(self, keywords):
-        flag = False
-        for key in self.neurons.iterkeys():
-            keywords_set = set(keywords)
-            key_set = set(key)
-            if key_set == keywords_set or key_set.intersection(keywords_set):
-                flag = True
-                break
-        return flag
+    def is_exists(self, keyword):
+        return self.neurons.has_key(keyword)
 
-    def execute(self, keywords, args=None):
-        return self.get(keywords)(args) if self.is_exists(keywords) else None
+    def execute(self, keyword, args=None):
+        return self.get(keyword)(args) if self.is_exists(keyword) else const.STR_DEFAULT_RESPONSE
 
 
 class NeuronsFinderService(AbstractNeuronsFinderService):
     def find_neurons(self, path):
-        modules = []
         for finder, name, is_pkg in pkgutil.walk_packages(path):
-            try:
-
-                loader = finder.find_module(name)
-                mod = loader.load_module(name)
-                modules.append(mod)
-            except:
-                print("Error loading '%s'".format(name))
-
-        return modules
+            loader = finder.find_module(name)
+            mod = loader.load_module(name)
+            yield mod
