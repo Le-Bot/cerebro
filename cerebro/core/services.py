@@ -40,15 +40,15 @@ class AbstractNeuronsService(object):
         return
 
     @abc.abstractmethod
-    def get(self, keywords):
+    def get(self, keyword):
         return
 
     @abc.abstractmethod
-    def is_exists(self, keywords):
+    def is_exists(self, keyword):
         return
 
     @abc.abstractmethod
-    def execute(self, keywords, args=None):
+    def execute(self, keyword, args=None):
         return
 
 
@@ -76,14 +76,14 @@ class NeuronsService(AbstractNeuronsService):
     def is_valid(self, neuron):
         return hasattr(neuron, const.STR_KEYWORDS)
 
-    def get(self, keywords):
-        return self.neurons.get(keywords)
+    def get(self, keyword):
+        return self.neurons.get(keyword)
 
-    def is_exists(self, keywords):
-        return self.neurons.has_key(keywords)
+    def is_exists(self, keyword):
+        return self.neurons.has_key(keyword)
 
-    def execute(self, keywords, args=None):
-        return self.get(keywords)(args) if self.is_exists(keywords) else None
+    def execute(self, keyword, args=None):
+        return self.get(keyword)(args) if self.is_exists(keyword) else None
 
 
 class NeuronsFinderService(AbstractNeuronsFinderService):

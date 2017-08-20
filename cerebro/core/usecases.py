@@ -15,5 +15,5 @@ class CerebroMain(object):
                 self.manager.add(neuron.KEYWORDS)
 
     def process_command(self, command):
-        response = self.manager.execute(command.keywords, command.args)
+        response = self.manager.execute(command.keyword, command.args)
         return response if response is not None else const.STR_DEFAULT_RESPONSE
