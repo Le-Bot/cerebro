@@ -26,7 +26,7 @@ class TestNeuron(unittest.TestCase):
         assert len(self.manager.get_all()) > 0
 
     def test_command_execution(self):
-        test_keyword = "system check"
+        test_keyword = "greet"
         test_response = "All working properly."
         test_command = neu.Command(test_keyword, self.command_args)
 
