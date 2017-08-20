@@ -10,7 +10,7 @@ def init():
     config = ser.ConfigService()
     config.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
 
-    finder = ser.NeuronsFinderService()
+    finder = ser.find_neurons
 
     manager = ser.NeuronsService()
     cerebro = uc.CerebroMain(config, finder, manager)

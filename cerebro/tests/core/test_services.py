@@ -2,21 +2,7 @@ import unittest
 
 import cerebro.core.constants as const
 import cerebro.core.services as ser
-
-
-class TestConfigService(unittest.TestCase):
-    def setUp(self):
-        self.obj = ser.ConfigService()
-
-    def test_type(self):
-        assert isinstance(self.obj, ser.AbstractConfigService)
-
-    def test_config_creation(self):
-        assert self.obj.get_neurons_path() is not None
-
-    def test_add_path(self):
-        self.obj.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
-        assert len(self.obj.get_neurons_path()) == 1
+import cerebro.core.config as cfg
 
 
 class TestNeuronsService(unittest.TestCase):
@@ -55,14 +41,6 @@ class TestNeuronsService(unittest.TestCase):
 
 class TestNeuronsFinderService(unittest.TestCase):
 
-    def setUp(self):
-        self.obj = ser.NeuronsFinderService()
-
-    def test_type(self):
-        assert isinstance(self.obj, ser.AbstractNeuronsFinderService)
-
     def test_find_neurons(self):
-        config = ser.ConfigService()
-        config.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
-
-        assert self.obj.find_neurons(config.get_neurons_path()) is not None
+        cfg.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
+        assert ser.find_neurons(cfg.get_neurons_path()) is not None

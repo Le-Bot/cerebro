@@ -6,7 +6,7 @@ class CerebroMain(object):
 
     def load_all_neurons(self):
         path = self.config.get_neurons_path()
-        neuron_modules = self.finder.find_neurons(path)
+        neuron_modules = self.finder(path)
         for neuron in neuron_modules:
             if not self.manager.is_valid(neuron):
                 continue
