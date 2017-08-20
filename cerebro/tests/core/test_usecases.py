@@ -5,13 +5,14 @@ import cerebro.core.usecases as uc
 import cerebro.core.services as ser
 import cerebro.core.constants as const
 import cerebro.core.config as cfg
+import cerebro.core.finder as fn
 
 
 class TestUseCases(unittest.TestCase):
     def setUp(self):
         cfg.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
 
-        self.finder = ser.find_neurons
+        self.finder = fn.find
 
         self.manager = ser.NeuronsService()
 

@@ -1,8 +1,6 @@
 import unittest
 
-import cerebro.core.constants as const
 import cerebro.core.services as ser
-import cerebro.core.config as cfg
 
 
 class TestNeuronsService(unittest.TestCase):
@@ -39,8 +37,4 @@ class TestNeuronsService(unittest.TestCase):
         assert self.obj.execute(self.keyword) == "This is dummy neuron"
 
 
-class TestNeuronsFinderService(unittest.TestCase):
 
-    def test_find_neurons(self):
-        cfg.add_neurons_location(const.STR_DEFAULT_NEURONS_PATH)
-        assert ser.find_neurons(cfg.get_neurons_path()) is not None

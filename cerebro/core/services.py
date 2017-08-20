@@ -1,5 +1,4 @@
 import abc
-import pkgutil
 
 import constants as const
 
@@ -55,8 +54,4 @@ class NeuronsService(AbstractNeuronsService):
         return self.get(keyword)(args) if self.is_exists(keyword) else const.STR_DEFAULT_RESPONSE
 
 
-def find_neurons(path):
-    for finder, name, is_pkg in pkgutil.walk_packages(path):
-        loader = finder.find_module(name)
-        mod = loader.load_module(name)
-        yield mod
+
