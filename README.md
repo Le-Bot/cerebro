@@ -7,14 +7,14 @@ Core engine for @LeBot, A generic bot that will be able to do custom tasks on th
 
 ## Run Tests
 
-python -m unittest discover
+<pre>python -m unittest discover</pre>
 
 
 ## Run Start
 
-python start.py <command>
+<pre>python start.py &lt;command&gt; </pre>
 
 
 ## List of supported Commands
 
-"system check", "time", "date"
+<pre>"system check", "time", "date"</pre>
