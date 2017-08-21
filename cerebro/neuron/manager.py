@@ -1,30 +1,9 @@
 import abc
-import pkgutil
 
 import constants as const
 
 
-class AbstractConfigService(object):
-    __metaclass__ = abc.ABCMeta
-
-    @abc.abstractmethod
-    def add_neurons_location(self, path):
-        return
-
-    @abc.abstractmethod
-    def get_neurons_path(self):
-        return
-
-
-class AbstractNeuronsFinderService(object):
-    __metaclass__ = abc.ABCMeta
-
-    @abc.abstractmethod
-    def find_neurons(self, path):
-        return
-
-
-class AbstractNeuronsService(object):
+class AbstractManager(object):
     __metaclass__ = abc.ABCMeta
 
     @abc.abstractmethod
@@ -52,18 +31,7 @@ class AbstractNeuronsService(object):
         return
 
 
-class ConfigService(AbstractConfigService):
-    def __init__(self):
-        self.__neurons_path = []
-
-    def add_neurons_location(self, path):
-        self.__neurons_path.append(path)
-
-    def get_neurons_path(self):
-        return self.__neurons_path
-
-
-class NeuronsService(AbstractNeuronsService):
+class NeuronsManager(AbstractManager):
     def __init__(self):
         self.neurons = {}
 
@@ -86,9 +54,4 @@ class NeuronsService(AbstractNeuronsService):
         return self.get(keyword)(args) if self.is_exists(keyword) else const.STR_DEFAULT_RESPONSE
 
 
-class NeuronsFinderService(AbstractNeuronsFinderService):
-    def find_neurons(self, path):
-        for finder, name, is_pkg in pkgutil.walk_packages(path):
-            loader = finder.find_module(name)
-            mod = loader.load_module(name)
-            yield mod
+

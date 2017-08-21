@@ -17,4 +17,4 @@ Core engine for @LeBot, A generic bot that will be able to do custom tasks on th
 
 ## List of supported Commands
 
-<pre>"system check", "time", "date"</pre>
+<pre>"how are you?", "what is the time?", "what is the date?"</pre>
