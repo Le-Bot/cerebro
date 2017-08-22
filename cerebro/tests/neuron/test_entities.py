@@ -13,9 +13,9 @@ class TestEntities(unittest.TestCase):
 
     def test_command_creation(self):
         command = en.Command(self.keyword)
-        assert command.keyword == self.test_keyword
+        self.assertEquals(command.keyword, self.test_keyword)
 
     def test_command_creation_args(self):
         command = en.Command(self.keyword, self.args)
-        assert command.keyword == self.test_keyword
-        assert command.args == self.test_args
+        self.assertEquals(command.keyword, self.test_keyword)
+        self.assertEquals(command.args, self.test_args)

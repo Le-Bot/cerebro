@@ -3,6 +3,8 @@ cerebro
 
 [![CircleCI](https://circleci.com/gh/Le-Bot/cerebro/tree/master.svg?style=shield)](https://circleci.com/gh/Le-Bot/cerebro/tree/master)
 
+[![codecov](https://codecov.io/gh/Le-Bot/cerebro/branch/master/graph/badge.svg)](https://codecov.io/gh/Le-Bot/cerebro)
+
 Core engine for @LeBot, A generic bot that will be able to do custom tasks on the basis of the interaction with User.
 
 ## Run Tests

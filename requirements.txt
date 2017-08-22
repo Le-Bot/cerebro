@@ -3,3 +3,6 @@ scikit-learn
 scipy
 numpy
 pandas
+coverage
+codecov
+nose

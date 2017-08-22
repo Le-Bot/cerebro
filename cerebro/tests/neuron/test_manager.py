@@ -3,10 +3,11 @@ import unittest
 from cerebro.neuron.manager import AbstractManager, NeuronsManager
 
 
-class Testmanager(unittest.TestCase):
+def simple_test(*args):
+    return "This is dummy neuron"
 
-    def simple_test(*args):
-        return "This is dummy neuron"
+
+class TestManager(unittest.TestCase):
 
     KEYWORDS = {"test": simple_test}
 
@@ -16,25 +17,25 @@ class Testmanager(unittest.TestCase):
         self.keyword = "test"
 
     def test_type(self):
-        assert isinstance(self.obj, AbstractManager)
+        self.assertIsInstance(self.obj, AbstractManager)
 
     def test_neurons_creation(self):
-        assert self.obj.get_all() is not None
+        self.assertIsNotNone(self.obj.get_all())
 
     def test_add_neuron(self):
-        assert len(self.obj.get_all()) == 1
+        self.assertEquals(len(self.obj.get_all()), 1)
 
     def test_is_valid_neuron(self):
-        assert self.obj.is_valid(self)
+        self.assertTrue(self.obj.is_valid(self))
 
     def test_get_neuron(self):
-        assert self.obj.get(self.keyword) is not None
+        self.assertIsNotNone(self.obj.get(self.keyword))
 
     def test_is_exists_neuron(self):
-        assert self.obj.is_exists(self.keyword)
+        self.assertTrue(self.obj.is_exists(self.keyword))
 
     def test_execute_neuron(self):
-        assert self.obj.execute(self.keyword) == "This is dummy neuron"
+        self.assertEquals(self.obj.execute(self.keyword), "This is dummy neuron")
 
 
 

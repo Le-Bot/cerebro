@@ -12,15 +12,15 @@ class TestNLP(unittest.TestCase):
         self.obj = n.NLP(parser, classifier)
     
     def test_init(self):
-        assert self.obj.parser is not None
-        assert self.obj.clf is not None
-        assert self.obj.x is None
-        assert self.obj.y is None
+        self.assertIsNotNone(self.obj.parser)
+        self.assertIsNotNone(self.obj.clf)
+        self.assertIsNone(self.obj.x)
+        self.assertIsNone(self.obj.y)
     
     def test_parse_data_set(self):
         self.obj.parse_data_set()
-        assert len(self.obj.x) == 29
-        assert len(self.obj.y) == 29
+        self.assertEqual(len(self.obj.x), 29)
+        self.assertEqual(len(self.obj.y), 29)
 
     def test_train(self):
         self.obj.parse_data_set()
@@ -30,6 +30,4 @@ class TestNLP(unittest.TestCase):
         self.obj.parse_data_set()
         self.obj.train()
         test_y = self.obj.predict(["How are you"])
-        assert np.mean(test_y == ["greet"]) > 0.5
-    
-    
+        self.assertGreater(np.mean(test_y == ["greet"]), 0.5)
