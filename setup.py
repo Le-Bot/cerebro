@@ -1,15 +1,18 @@
 from setuptools import setup
 
 
-def readme():
-    with open('README.md') as f:
-        return f.read()
+try:
+    from pypandoc import convert
+    read_md = lambda f: convert(f, 'rst')
+except ImportError:
+    print("warning: pypandoc module not found, could not convert Markdown to RST")
+    read_md = lambda f: open(f, 'r').read()
 
 
 setup(name='lebot-cerebro',
-      version='0.1.0dev',
+      version='0.1.0dev3',
       description='Core engine for LeBot',
-      long_description=readme(),
+      long_description=read_md('README.md'),
       classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'License :: OSI Approved :: MIT License',
