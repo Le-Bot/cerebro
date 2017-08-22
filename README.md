@@ -3,7 +3,7 @@ cerebro
 
 [![CircleCI](https://circleci.com/gh/Le-Bot/cerebro/tree/master.svg?style=shield)](https://circleci.com/gh/Le-Bot/cerebro/tree/master)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ab66dab23c32401f87cd6fe1c26af956)](https://www.codacy.com/app/Le-Bot/cerebro?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Le-Bot/cerebro&amp;utm_campaign=Badge_Grade)
+[![codecov](https://codecov.io/gh/Le-Bot/cerebro/branch/master/graph/badge.svg)](https://codecov.io/gh/Le-Bot/cerebro)
 
 Core engine for @LeBot, A generic bot that will be able to do custom tasks on the basis of the interaction with User.
 
