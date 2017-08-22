@@ -3,13 +3,13 @@ import unittest
 from cerebro.neuron.manager import AbstractManager, NeuronsManager
 
 
-def simple_test(*args):
+def simple_neuron(*args):
     return "This is dummy neuron"
 
 
 class TestManager(unittest.TestCase):
 
-    KEYWORDS = {"test": simple_test}
+    KEYWORDS = {"test": simple_neuron}
 
     def setUp(self):
         self.obj = NeuronsManager()

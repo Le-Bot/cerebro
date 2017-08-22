@@ -9,8 +9,7 @@ Core engine for @LeBot, A generic bot that will be able to do custom tasks on th
 
 ## Run Tests
 
-<pre>python -m unittest discover</pre>
-
+<pre>nosetests</pre>
 
 ## Run Start
 

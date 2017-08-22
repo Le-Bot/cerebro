@@ -8,27 +8,27 @@ class AbstractManager(object):
 
     @abc.abstractmethod
     def get_all(self):
-        return
+        raise NotImplementedError()
 
     @abc.abstractmethod
     def add(self, obj):
-        pass
+        raise NotImplementedError()
 
     @abc.abstractmethod
     def is_valid(self, neuron):
-        return
+        raise NotImplementedError()
 
     @abc.abstractmethod
     def get(self, keyword):
-        return
+        raise NotImplementedError()
 
     @abc.abstractmethod
     def is_exists(self, keyword):
-        return
+        raise NotImplementedError()
 
     @abc.abstractmethod
     def execute(self, keyword, args=None):
-        return
+        raise NotImplementedError()
 
 
 class NeuronsManager(AbstractManager):

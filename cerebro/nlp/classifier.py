@@ -10,11 +10,11 @@ class AbstractClassifier(object):
 
     @abc.abstractmethod
     def fit(self, features, labels):
-        return
+        raise NotImplementedError()
 
     @abc.abstractmethod
     def predict(self, features):
-        return
+        raise NotImplementedError()
 
 
 class CerebroClassifier(AbstractClassifier):
