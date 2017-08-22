@@ -9,11 +9,11 @@ class BaseFactory(object):
 
     @abc.abstractmethod
     def neuron(self):
-        return
+        raise NotImplementedError()
 
     @abc.abstractmethod
     def nlp(self):
-        return
+        raise NotImplementedError()
 
     def cerebro(self):
         neuron = self.neuron()
