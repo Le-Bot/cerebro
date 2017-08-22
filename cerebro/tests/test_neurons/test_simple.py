@@ -11,10 +11,10 @@ class TestSimple(unittest.TestCase):
         self.valid_attr = "KEYWORDS"
 
     def test_valid(self):
-        assert hasattr(sim, self.valid_attr)
+        self.assertTrue(hasattr(sim, self.valid_attr))
 
     def test_simple(self):
-        assert sim.simple_test() == self.response
+        self.assertEqual(sim.simple_test(), self.response)
 
     def test_neuron(self):
-        assert sim.KEYWORDS[self.keyword]() == self.response
+        self.assertEqual(sim.KEYWORDS[self.keyword](), self.response)

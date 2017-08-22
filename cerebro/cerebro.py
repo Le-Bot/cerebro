@@ -1,35 +1,12 @@
-import neuron as neu
-import nlp as n
+import core.factory as default
+from neuron.entities import Command
 
 
-def init_neuron():
-    neu.cfg.add_neurons_location(neu.STR_DEFAULT_NEURONS_PATH)
+def run(txt, factory=None):
 
-    finder = neu.find
+    if factory is None:
+        factory = default.DefaultFactory()
 
-    manager = neu.NeuronsManager()
-    return neu.Neuron(neu.cfg, finder, manager)
-
-
-def init_nlp():
-    parser = n.DataSetParser(n.DATA_SET_PATH)
-    classifier = n.CerebroClassifier()
-    return n.NLP(parser, classifier)
-
-
-def init():
-    neuron = init_neuron()
-    neuron.load_all()
-
-    nlp = init_nlp()
-    nlp.parse_data_set()
-    nlp.train()
-
-    return nlp, neuron
-
-
-def run(txt):
-    nlp, neuron = init()
+    nlp, neuron = factory.cerebro()
     label = nlp.predict(txt)
-    print(label)
-    return neuron.process(neu.Command(label[0]))
+    return neuron.process(Command(label[0]))

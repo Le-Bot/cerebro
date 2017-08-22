@@ -14,16 +14,16 @@ class TestDatetime(unittest.TestCase):
         self.valid_attr = "KEYWORDS"
 
     def test_valid(self):
-        assert hasattr(dt, self.valid_attr)
+        self.assertTrue(hasattr(dt, self.valid_attr))
 
     def test_time(self):
-        assert dt.current_time() == self.time_response
+        self.assertEqual(dt.current_time(), self.time_response)
 
     def test_neuron_time(self):
-        assert dt.KEYWORDS[self.time_keyword]() == self.time_response
+        self.assertEqual(dt.KEYWORDS[self.time_keyword](), self.time_response)
 
     def test_date(self):
-        assert dt.current_date() == self.date_response
+        self.assertEqual(dt.current_date(), self.date_response)
 
     def test_neuron_date(self):
-        assert dt.KEYWORDS[self.date_keyword]() == self.date_response
+        self.assertEqual(dt.KEYWORDS[self.date_keyword](), self.date_response)

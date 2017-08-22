@@ -15,15 +15,15 @@ class TestNeuron(unittest.TestCase):
 
     def test_neuron_creation(self):
         neuron = neu.Neuron(neu.cfg, self.finder, self.manager)
-        assert neuron
-        assert neuron.config == neu.cfg
-        assert neuron.finder == self.finder
-        assert neuron.manager == self.manager
+        self.assertIsNotNone(neuron)
+        self.assertEqual(neuron.config, neu.cfg)
+        self.assertEqual(neuron.finder, self.finder)
+        self.assertEqual(neuron.manager, self.manager)
 
     def test_load_all(self):
         neuron = neu.Neuron(neu.cfg, self.finder, self.manager)
         neuron.load_all()
-        assert len(self.manager.get_all()) > 0
+        self.assertGreater(len(self.manager.get_all()), 0)
 
     def test_command_execution(self):
         test_keyword = "greet"
@@ -34,7 +34,7 @@ class TestNeuron(unittest.TestCase):
         neuron.load_all()
 
         response = neuron.process(test_command)
-        assert response == test_response
+        self.assertEqual(response, test_response)
 
     def test_command_execution_failure(self):
         test_keyword = "wrong command"
@@ -44,4 +44,4 @@ class TestNeuron(unittest.TestCase):
         neuron.load_all()
 
         response = neuron.process(test_command)
-        assert response == neu.STR_DEFAULT_RESPONSE
+        self.assertEqual(response, neu.STR_DEFAULT_RESPONSE)
