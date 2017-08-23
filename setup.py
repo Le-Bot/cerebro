@@ -1,18 +1,20 @@
-from setuptools import setup
+# Always prefer setuptools over distutils
+from setuptools import setup, find_packages
+# To use a consistent encoding
+from codecs import open
+from os import path
 
+here = path.abspath(path.dirname(__file__))
 
-try:
-    from pypandoc import convert
-    read_md = lambda f: convert(f, 'rst')
-except ImportError:
-    print("warning: pypandoc module not found, could not convert Markdown to RST")
-    read_md = lambda f: open(f, 'r').read()
+# Get the long description from the README file
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+    long_description = f.read()
 
 
 setup(name='lebot-cerebro',
-      version='0.1.0dev3',
+      version='0.1.0dev6',
       description='Core engine for LeBot',
-      long_description=read_md('README.md'),
+      long_description=long_description,
       classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'License :: OSI Approved :: MIT License',
