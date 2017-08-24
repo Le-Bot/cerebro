@@ -38,3 +38,7 @@ List of supported Commands
    :target: https://codeclimate.com/github/Le-Bot/cerebro
 .. |codacy| image:: https://api.codacy.com/project/badge/Grade/290492beb84f4f63818d753a1c98288c
    :target: https://www.codacy.com/app/Le-Bot/cerebro?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Le-Bot/cerebro&amp;utm_campaign=Badge_Grade
+
+.. image:: https://api.codacy.com/project/badge/Grade/290492beb84f4f63818d753a1c98288c
+   :alt: Codacy Badge
+   :target: https://www.codacy.com/app/Le-Bot/cerebro?utm_source=github.com&utm_medium=referral&utm_content=Le-Bot/cerebro&utm_campaign=badger
