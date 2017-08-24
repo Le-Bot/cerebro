@@ -10,13 +10,13 @@ class TestNLP(unittest.TestCase):
         parser = n.DataSetParser(n.DATA_SET_PATH)
         classifier = n.CerebroClassifier()
         self.obj = n.NLP(parser, classifier)
-    
+
     def test_init(self):
         self.assertIsNotNone(self.obj.parser)
         self.assertIsNotNone(self.obj.clf)
         self.assertIsNone(self.obj.x)
         self.assertIsNone(self.obj.y)
-    
+
     def test_parse_data_set(self):
         self.obj.parse_data_set()
         self.assertEqual(len(self.obj.x), 29)
