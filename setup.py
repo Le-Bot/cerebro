@@ -1,5 +1,5 @@
 # Always prefer setuptools over distutils
-from setuptools import setup
+from setuptools import setup, find_packages
 # To use a consistent encoding
 from codecs import open as opn
 from os import path
@@ -26,7 +26,8 @@ setup(name='lebot-cerebro',
       author='LeBot',
       author_email='sanket.upadhyay@infoud.co.in',
       license='MIT',
-      packages=['cerebro'],
+      packages=['cerebro']+find_packages(),
+      package_data={'': ['*.csv'], 'cerebro.data': ['datasets/*.csv']},
       install_requires=[
           'scikit-learn',
           'scipy',
