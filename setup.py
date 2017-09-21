@@ -12,7 +12,7 @@ with opn(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 
 setup(name='lebot-cerebro',
-      version='0.1.0dev7',
+      version='0.1.0dev8',
       description='Core engine for LeBot',
       long_description=long_description,
       classifiers=[
